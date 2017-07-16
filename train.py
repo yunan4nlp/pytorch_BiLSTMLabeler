@@ -101,7 +101,6 @@ class Labeler:
                 self.model.LSTMHidden = self.model.init_hidden()
                 exam = trainExamples[indexes[idx]]
                 tag_scores = self.model(exam.feat)
-                print(tag_scores)
                 loss = torch.nn.functional.cross_entropy(tag_scores, exam.labelIndexs)
                 cost += loss
                 loss.backward()
